@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @author Vitalii Edifanov
+ * @copyright (c) 2015, Vitalii Edifanov
+ */
+
 namespace mediarise;
 
 use Yii;
@@ -21,11 +26,17 @@ class MRCacheManager extends Cache {
      */
     public function init() {
         parent::init();
+
         if ($this->isSessionCache) {
             $this->suffix = '_session';
         }
         // ключ в котором хранится текущее значение суффикса кэша
         $this->cacheId = $this->keyPrefix . $this->suffix;
+
+        $flush = Yii::$app->request->get('flush-cache');
+        if ($flush !== NULL) {
+            $this->flush();
+        }
     }
 
     public function set($key, $value, $expire = 0, $dependency = NULL) {
