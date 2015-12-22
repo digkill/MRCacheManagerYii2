@@ -33,8 +33,11 @@ class MRCacheManager extends Cache {
         // ключ в котором хранится текущее значение суффикса кэша
         $this->cacheId = $this->keyPrefix . $this->suffix;
 
-        $flush = Yii::$app->request->get('flush-cache');
-        if ($flush !== NULL) {
+        $isFlush = Yii::$app->request->get('flush-cache');
+        
+        var_dump($isFlush);
+        
+        if ($isFlush !== NULL) {
             $this->flush();
         }
     }
