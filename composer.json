@@ -1,0 +1,19 @@
+{
+    "name": "mediarise/cache-manager",
+    "description": "Менеджер кеша",
+    "keywords": ["yii2","redis"],
+    "type": "yii2-extension",
+    "authors": [
+        {
+            "name": "Vitalii Edifanov",
+            "email": "digkill@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": ">=2.0.4",
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "classmap": ["MRCacheManager.php"]
+    }
+}
